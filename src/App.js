@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // 引入 axios
 import './App.css';
 
 function App() {
@@ -65,17 +66,44 @@ function Carousel() {
 }
 
 function ApiComponent() {
-// 定義狀態來儲存 API 數據
-const [data, setData] = useState([]);
+  // 定義狀態來儲存 API 數據
+  const [data, setData] = useState([]);
 
-// 使用 useEffect 在組件掛載時執行 API 請求
-useEffect(() => {
-  // 使用 fetch 從 API 獲取數據
-  fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(data => setData(data))
-    .catch(error => console.error('Error fetching data:', error));
-}, []);
+  // 使用 useEffect 在組件掛載時執行 API 請求
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+// 另一種舊寫法一樣是異步處理API
+// axios.get('https://jsonplaceholder.typicode.com/posts')
+//       .then(response => {
+//         setData(response.data);
+//       })
+//       .catch(error => {
+//         console.error('Error fetching data:', error);
+//       });
+//   }, []);
+// // 定義狀態來儲存 API 數據
+// const [data, setData] = useState([]);
+
+
+// // 使用 useEffect 在組件掛載時執行 API 請求
+// useEffect(() => {
+//   // 使用 fetch 從 API 獲取數據
+//   fetch('https://jsonplaceholder.typicode.com/posts')
+//     .then(response => response.json())
+//     .then(data => setData(data))
+//     .catch(error => console.error('Error fetching data:', error));
+// }, []);
 
   return (
     <div className="api-section">
