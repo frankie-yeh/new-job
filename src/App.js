@@ -3,7 +3,6 @@ import './App.css';
 
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -66,43 +65,29 @@ function Carousel() {
 }
 
 function ApiComponent() {
-  const [apiResponse, setApiResponse] = useState(null);
-  const [error, setError] = useState(null);
+// 定義狀態來儲存 API 數據
+const [data, setData] = useState([]);
 
-  const callApi = () => {
-    // 使用你自己的 API URL
-    const apiUrl = 'https://jsonplaceholder.typicode.com/posts';  // 這裡可以替換為實際的 API URL
-
-    fetch(apiUrl, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json(); // 將響應轉為 JSON
-      })
-      .then(data => {
-        setApiResponse(JSON.stringify(data.slice(0, 3), null, 2));  // 只顯示前3筆資料
-        setError(null);
-      })
-      .catch(error => {
-        setError('Error: ' + error.message);
-        setApiResponse(null);
-      });
-  };
+// 使用 useEffect 在組件掛載時執行 API 請求
+useEffect(() => {
+  // 使用 fetch 從 API 獲取數據
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(data => setData(data))
+    .catch(error => console.error('Error fetching data:', error));
+}, []);
 
   return (
     <div className="api-section">
       <h2>API Call Example</h2>
-      <button onClick={callApi}>Call API</button>
-      <div className="api-response">
-        {apiResponse && <pre>{apiResponse}</pre>}
-        {error && <p className="error">{error}</p>}
-      </div>
+      <ul>
+        {data.map(item => (
+          <li key={item.id}>
+            <h2>{item.title}</h2>
+            <p>{item.body}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
