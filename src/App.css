@@ -1,38 +1,122 @@
-.App {
+/* App.css */
+
+/* 調整外層容器的最大寬度，並置中 */
+.outer-div {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* 將整體容器置中 */
+}
+
+/* 內部容器保持彈性佈局，並增加一點上下間距 */
+.inner-div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* 左右欄的基本樣式 */
+.left-content, .right-content {
+  flex: 1;
+  text-align: center;
+  margin: 0 10px; /* 增加左右的內間距 */
+}
+
+/* 導覽列的設計 */
+.nav-div {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+/* 讓每個選單項目有更好的間距 */
+.menu-item {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #f0f0f0; /* 添加背景色 */
+  border-radius: 5px; /* 圓角設計 */
+}
+
+.menu-item:hover {
+  background-color: #ddd; /* 滑過效果 */
+}
+
+.dropdown {
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.carousel-div {
+  margin-bottom: 20px;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+}
+
+.four-divs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px; /* 添加間距 */
+}
+
+.four-divs .div1,
+.four-divs .div2,
+.four-divs .div3,
+.four-divs .div4 {
+  width: 23%;
+  height: 100px;
+  background-color: lightgray;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* 調整 API 區塊 */
+.api-section {
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto; /* 將 API 區塊置中並添加間距 */
+}
+
+.api-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.api-container h2 {
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.api-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.api-response {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.api-response pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error {
+  color: red;
 }
