@@ -34,31 +34,49 @@
   padding: 10px 20px;
   background-color: #f0f0f0; /* 添加背景色 */
   border-radius: 5px; /* 圓角設計 */
+  position: relative; /* 讓子選單可以絕對定位 */
 }
 
 .menu-item:hover {
   background-color: #ddd; /* 滑過效果 */
 }
 
+/* 隐藏子菜单 */
 .dropdown {
+  display: none;
   position: absolute;
+  top: 100%; /* 讓子選單出現在父元素的下方 */
+  left: 0;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  width: 200px; /* 設置寬度，以便子選單項目對齊 */
+  border-radius: 5px; /* 圓角設計 */
+}
+
+/* 当鼠标悬停在菜单项上时显示子菜单 */
+.menu-item:hover .dropdown {
+  display: block;
 }
 
 .dropdown-item {
-  padding: 8px;
+  padding: 8px 16px;
   cursor: pointer;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd; /* 子選單項目之間的邊框 */
 }
 
-.carousel-div {
-  margin-bottom: 20px;
+.dropdown-item:hover {
+  background-color: #ddd; /* 子選單項目滑過效果 */
 }
+
+
 
 .carousel img {
   width: 100%;
   height: auto;
+  display: block;
+  padding-bottom:20px;
 }
 
 .four-divs {
@@ -71,52 +89,55 @@
 .four-divs .div2,
 .four-divs .div3,
 .four-divs .div4 {
-  width: 23%;
+  width: 25%;
   height: 100px;
   background-color: lightgray;
   text-align: center;
   line-height: 100px;
+  margin: 5px;
+  
 }
 
-/* 調整 API 區塊 */
+/* 導航欄、輪播圖、四個 div 等樣式保持不變 */
+
+/* API 呼叫區域 */
 .api-section {
   padding: 20px;
-  background-color: #f1f1f1;
+  background-color: #f9f9f9;
   border-radius: 8px;
-  max-width: 600px;
-  margin: 20px auto; /* 將 API 區塊置中並添加間距 */
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.api-container {
-  text-align: center;
+.api-list {
+  list-style: none;
+  padding: 0;
 }
 
-.api-container h2 {
-  margin-bottom: 10px;
-}
-
-.api-container button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.api-response {
-  margin-top: 20px;
-  text-align: left;
-  max-width: 100%;
+.api-item {
+  margin-bottom: 20px;
+  padding: 15px;
   background-color: #fff;
-  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  min-height: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.api-response pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.api-item h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.api-item p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #666;
 }
 
 .error {
   color: red;
+  text-align: center;
 }
+
