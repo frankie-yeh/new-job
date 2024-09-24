@@ -5,6 +5,9 @@ import Navigation from './components/Navigation';
 import Carousel from './components/Carousel';
 import FourDivs from './components/FourDivs';
 import ApiComponent from './components/ApiComponent';
+import AboutUs from './components/about-us';
+
+
 
 function App() {
   return (
@@ -26,6 +29,7 @@ function App() {
           />
           {/* API 頁面 */}
           <Route path="/api" element={<ApiComponent />} />
+          <Route path="/about-us" element={<AboutUs />} /> {/* 關於我們頁面路由 */}
         </Routes>
       </div>
     </Router>

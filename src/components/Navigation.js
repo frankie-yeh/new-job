@@ -26,7 +26,7 @@ function Navigation() {
           </div>
         )}
       </div>
-      <Link to="/about" className="menu-item">自我介紹</Link>
+      <Link to="/about-us" className="menu-item">自我介紹</Link>
       <div className="menu-item">選項5</div>
     </div>
   );
