@@ -27,8 +27,7 @@ function App() {
               </>
             }
           />
-          {/* API 頁面 */}
-          <Route path="/api" element={<ApiComponent />} />
+          <Route path="/api" element={<ApiComponent />} /> {/* API 頁面 */}
           <Route path="/about-us" element={<AboutUs />} /> {/* 關於我們頁面路由 */}
         </Routes>
       </div>
