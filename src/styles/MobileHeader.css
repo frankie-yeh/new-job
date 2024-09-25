@@ -1,0 +1,59 @@
+/* MobileHeader.css */
+
+/* 使移動版選單靠上並佔滿寬度 */
+.mobile-nav-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* 你可以根據需要更改背景色 */
+    z-index: 1000; /* 確保選單位於頂層 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影以區分選單和內容 */
+  }
+  
+  .menu-icon {
+    padding: 15px;
+    cursor: pointer;
+  }
+  
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  .mobile-menu-item {
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* 添加下邊框 */
+    cursor: pointer;
+  }
+  
+  .mobile-menu-item:hover {
+    background-color: #f0f0f0; /* 滑過效果 */
+  }
+  
+  .mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    width: 100%;
+    border-top: 1px solid #ddd;
+  }
+  
+  .mobile-dropdown-item {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .mobile-dropdown-item:hover {
+    background-color: #ddd; /* 滑過效果 */
+  }
+  

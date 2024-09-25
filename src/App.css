@@ -85,15 +85,32 @@
   margin-bottom: 20px; /* 添加間距 */
 }
 
+.car-logo {
+  width:100%;
+  margin-top: 20px;
+}
+.car-logo img {
+  width:100px;
+}
+.car-logo h2 {
+  font-size: 20px;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+.car-logo p {
+  font-size: 16px;
+  margin: 10px;
+}
+
 .four-divs .div1,
 .four-divs .div2,
 .four-divs .div3,
 .four-divs .div4 {
   width: 25%;
-  height: 100px;
+  height: auto;
   background-color: lightgray;
   text-align: center;
-  line-height: 100px;
+  /*line-height: 100px;*/
   margin: 5px;
   
 }
@@ -139,5 +156,59 @@
 .error {
   color: red;
   text-align: center;
+}
+
+/*Footer 頁尾 置中*/
+.footer-section{
+  padding:2em;
+  text-align: center;
+  font-size: 12px;
+  /*background-color:black;*/
+  color: #000;
+}
+
+/* search pc or phone */
+
+/* 只針對桌面版 */
+.desktop-header {
+  display: block;
+}
+
+.mobile-header {
+  display: none;
+}
+
+/* 針對最大寬度為768px的設備 */
+@media (max-width: 768px) {
+  .desktop-header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: block;
+  }
+
+  .outer-div {
+    padding-top: 60px; /* 確保內容不被固定的選單覆蓋 */
+  }
+
+  .four-divs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-direction: column-reverse;
+    
+  }
+
+  .four-divs .div1,
+  .four-divs .div2,
+  .four-divs .div3,
+  .four-divs .div4 {
+    width:100%;
+  }
+  .car-logo img {
+    width: 50%;
+    
+  }
 }
 
