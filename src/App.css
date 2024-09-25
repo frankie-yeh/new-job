@@ -210,7 +210,19 @@
     width: 50%;
     
   }
+  /* 調整輪播圖片，讓它不被選單遮擋 */
+  .carousel {
+    margin-top: 100px; /* 確保選單不會覆蓋輪播圖片 */
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
+  
+
 
 /* 桌面版導航欄容器 */
 .nav-container {

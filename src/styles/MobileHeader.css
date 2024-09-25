@@ -63,9 +63,9 @@
   }
   
   /* 調整輪播圖片，讓它不被選單遮擋 */
-.carousel {
-  margin-top: 100px; /* 確保選單不會覆蓋輪播圖片 */
-}
+/*.carousel {
+  margin-top: 100px; /* 確保選單不會覆蓋輪播圖片 
+}*/
 
 .carousel img {
   width: 100%;
