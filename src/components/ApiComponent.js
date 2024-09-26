@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // 確保 axios 被引入
 import Carousel from './Carousel'; // 確保已經有 Carousel 組件
+import Footer from './footer';
 
 function ApiComponent() {
   const [data, setData] = useState([]);
@@ -39,6 +40,7 @@ function ApiComponent() {
         </ul>
       )}
     </div>
+    <Footer />
     </div>
   );
 }
