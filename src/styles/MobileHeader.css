@@ -33,7 +33,7 @@
     padding: 15px;
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid #ddd; /* 添加下邊框 */
+    border-bottom: 1px solid #fff; /* 添加下邊框 */
     cursor: pointer;
   }
   
@@ -78,7 +78,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: #2D88CF;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -99,6 +99,8 @@
   padding: 15px;
   cursor: pointer;
   text-align: right;
+  font-weight: 900;
+  color: #fff;
 }
 
 /* 選單項目 */
@@ -106,7 +108,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: #2D88CF;
   width: 100%;
 }
 
@@ -114,12 +116,15 @@
   padding: 15px;
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #2D88CF;
   cursor: pointer;
+  font-weight: 900;
+  color:#fff;
+  text-decoration: none;
 }
 
 .mobile-menu-item:hover {
-  background-color: #f0f0f0;
+  background-color: #2D88CF;
 }
 
 /* 下拉選單 */
@@ -127,19 +132,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f9f9f9;
+  background-color: #2D88CF;
   width: 100%;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #347bb1;
 }
 
 .mobile-dropdown-item {
   padding: 10px;
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #347bb1;
   cursor: pointer;
 }
 
 .mobile-dropdown-item:hover {
-  background-color: #ddd;
+  background-color: #144870;
 }

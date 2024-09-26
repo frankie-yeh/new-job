@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 function Navigation() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleDropdown = (isOpen) => {
+    setIsDropdownOpen(isOpen);
   };
 
   return (
@@ -19,7 +19,9 @@ function Navigation() {
       <div className="nav-menu">
         <Link to="/" className="menu-item">回首頁</Link>
         <Link to="/api" className="menu-item">抓API</Link>
-        <div className="menu-item" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+        <div className="menu-item"
+          onMouseOver={() => toggleDropdown(true)}
+          onMouseLeave={() => toggleDropdown(false)}>
           選項3 {isDropdownOpen ? '▲' : '▼'}
           {isDropdownOpen && (
             <div className="dropdown">

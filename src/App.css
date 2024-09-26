@@ -2,9 +2,9 @@
 
 /* 調整外層容器的最大寬度，並置中 */
 .outer-div {
-  padding: 20px;
-  max-width: 1200px;
   margin: 0 auto; /* 將整體容器置中 */
+  /*padding: 20px;
+  max-width: 1200px;*/
 }
 
 /* 內部容器保持彈性佈局，並增加一點上下間距 */
@@ -32,14 +32,15 @@
 .menu-item {
   cursor: pointer;
   padding: 10px 20px;
-  background-color: #f0f0f0; /* 添加背景色 */
-  border-radius: 5px; /* 圓角設計 */
+  border-radius: 5px;
   position: relative; /* 讓子選單可以絕對定位 */
+  font-weight: 900;
+  text-decoration: none;
 }
 
 .menu-item:hover {
   background-color: #ddd; /* 滑過效果 */
-}
+  }
 
 /* 隐藏子菜单 */
 .dropdown {
@@ -59,24 +60,28 @@
   display: block;
 }
 
+/* 確保子選單在父選單項目和子選單上懸停時保持可見 */
+.menu-item:hover .dropdown,
+.dropdown:hover {
+  display: block;
+}
+
 .dropdown-item {
   padding: 8px 16px;
   cursor: pointer;
   background-color: #f9f9f9;
-  border-bottom: 1px solid #ddd; /* 子選單項目之間的邊框 */
+  border-bottom: 1px solid #347bb1; /* 子選單項目之間的邊框 */
 }
 
 .dropdown-item:hover {
   background-color: #ddd; /* 子選單項目滑過效果 */
 }
 
-
-
 .carousel img {
   width: 100%;
   height: auto;
   display: block;
-  padding-bottom:20px;
+  padding-bottom: 20px;
 }
 
 .four-divs {
@@ -86,15 +91,15 @@
 }
 
 .car-logo {
-  width:100%;
+  width: 100%;
   margin-top: 20px;
 }
 .car-logo img {
-  width:100px;
+  width: 100px;
 }
 .car-logo h2 {
   font-size: 20px;
-  padding-top:10px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 .car-logo p {
@@ -110,12 +115,8 @@
   height: auto;
   background-color: lightgray;
   text-align: center;
-  /*line-height: 100px;*/
   margin: 5px;
-  
 }
-
-/* 導航欄、輪播圖、四個 div 等樣式保持不變 */
 
 /* API 呼叫區域 */
 .api-section {
@@ -158,12 +159,39 @@
   text-align: center;
 }
 
+/*About 置中*/
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 5em;
+}
+
+.about-me-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  width: 50%;
+  height: auto;
+}
+
+.about-me-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  width: 50%;
+  height: auto;
+}
+
 /*Footer 頁尾 置中*/
-.footer-section{
-  padding:2em;
+.footer-section {
+  padding: 2em;
   text-align: center;
   font-size: 12px;
-  /*background-color:black;*/
   color: #000;
 }
 
@@ -197,32 +225,40 @@
     justify-content: space-around;
     margin-bottom: 20px;
     flex-direction: column-reverse;
-    
   }
 
   .four-divs .div1,
   .four-divs .div2,
   .four-divs .div3,
   .four-divs .div4 {
-    width:100%;
+    width: 100%;
   }
   .car-logo img {
     width: 50%;
-    
   }
-  /* 調整輪播圖片，讓它不被選單遮擋 */
   .carousel {
     margin-top: 100px; /* 確保選單不會覆蓋輪播圖片 */
   }
-  
+
   .carousel img {
     width: 100%;
     height: auto;
     display: block;
   }
-}
-  
 
+  /*aboutus 置中*/
+  .about-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .about-me-left,
+  .about-me-right {
+    width: 100%;
+  }
+}
 
 /* 桌面版導航欄容器 */
 .nav-container {
@@ -230,8 +266,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #2D88CF;
+  box-shadow: 0 2px 4px rgb(233, 13, 13);
 }
 
 /* 左邊的 Logo 部分 */
@@ -254,14 +290,18 @@
   padding: 10px 20px;
   margin-left: 15px;
   cursor: pointer;
-  background-color: #f0f0f0;
   border-radius: 5px;
   text-decoration: none;
-  color: #333;
+  color: #fff;
 }
 
 .menu-item:hover {
-  background-color: #ddd;
+  background-color: #2D88CF;
+  text-decoration:underline;
+  text-decoration-color: #347bb1;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
+  
 }
 
 .dropdown {
@@ -269,14 +309,15 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 5px;
+  margin: 0 18px; /*用margin拉開距離*/
 }
 
 .dropdown-item {
   padding: 10px;
   cursor: pointer;
-  background-color: #f9f9f9;
+  background-color: #2D88CF;
 }
 
 .dropdown-item:hover {
-  background-color: #ddd;
+  background-color: #144870;
 }
