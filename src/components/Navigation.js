@@ -12,7 +12,7 @@ function Navigation() {
     <div className="nav-container">
       {/* Logo 在左邊 */}
       <div className="nav-logo">
-        <img src="../assets/images/bmw-logo.png" alt="Logo" className="desktop-logo" />
+        <img src="../assets/images/car-logo.png" alt="Logo" className="desktop-logo" />
       </div>
 
       {/* 選單項目在右邊 */}

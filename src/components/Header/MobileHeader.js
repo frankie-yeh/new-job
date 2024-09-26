@@ -18,7 +18,7 @@ function MobileHeader() {
     <div className="mobile-nav-container">
       {/* Logo 部分 */}
       <div className="mobile-logo-div">
-        <img src="../assets/images/bmw-logo.png" alt="Logo" className="mobile-logo" />
+        <img src="../assets/images/car-logo.png" alt="Logo" className="mobile-logo" />
       </div>
 
       {/* 菜單按鈕部分 */}
