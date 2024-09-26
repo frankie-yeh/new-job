@@ -17,9 +17,11 @@ function MobileHeader() {
   return (
     <div className="mobile-nav-container">
       {/* Logo 部分 */}
-      <div className="mobile-logo-div">
-        <img src="../assets/images/car-logo.png" alt="Logo" className="mobile-logo" />
-      </div>
+        <div className="mobile-logo-div">
+            <Link to="/">
+                <img src="../assets/images/car-logo.png" alt="Logo" className="mobile-logo" />
+            </Link>
+        </div>
 
       {/* 菜單按鈕部分 */}
       <div className="menu-icon" onClick={toggleMenu}>
