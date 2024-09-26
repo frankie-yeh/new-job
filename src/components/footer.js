@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="footer-section">
       <div className="footer-logo">
-        <img src='../assets/images/car-logo.png' alt="Logo" />
+        <img src='../assets/images/footer-car-logo.png' alt="Logo" />
       </div>
       <div className="footer-map">
         {/* 替換這裡的 iframe 代碼為你實際的地圖嵌入代碼 */}
