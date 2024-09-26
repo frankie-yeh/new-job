@@ -237,7 +237,7 @@
   }
 
   .outer-div {
-    padding-top: 60px; /* 確保內容不被固定的選單覆蓋 */
+    padding-top: 50px; /* 確保內容不被固定的選單覆蓋 */
   }
 
   .four-divs {
