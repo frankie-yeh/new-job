@@ -1,151 +1,85 @@
-/* MobileHeader.css */
-
-/* 使移動版選單靠上並佔滿寬度 */
-.mobile-nav-div {
+/* 手機版主容器，使用 flex 排列左邊 logo 和右邊選單 */
+.mobile-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #fff; /* 你可以根據需要更改背景色 */
-    z-index: 1000; /* 確保選單位於頂層 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影以區分選單和內容 */
+    background-color: #2D88CF;
+    z-index: 1000;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
+  /* Logo 部分 */
+  .mobile-logo-div {
+    flex: 1; /* 讓 Logo 佔據左邊空間 */
+  }
+  
+  .mobile-logo {
+    height: 50px; /* 可根據需求調整 */
+  }
+  
+  /* 菜單按鈕部分 */
   .menu-icon {
-    padding: 15px;
+    flex: 1;
+    text-align: right;
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
     cursor: pointer;
-    z-index: 1100; /* 確保圖標始終可點擊 */
+    padding: 10px; /* 調整 padding 以確保按鈕不會超出視窗 */
+    margin-right: 10px; /* 添加 margin-right 以避免靠得太近 */
+    box-sizing: border-box; /* 確保 padding 和 margin 不會導致元素超出容器 */
   }
   
+  /* 手機版選單 */
   .mobile-menu {
-    position: absolute; /* 不影響其他內容，覆蓋在其上 */
-    top: 100%; /* 跟隨 menu-icon */
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    z-index: 999; /* 確保選單覆蓋其他內容，但在 menu-icon 之下 */
+    background-color: #2D88CF;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
   .mobile-menu-item {
-    padding: 15px;
     width: 100%;
+    padding: 15px;
     text-align: center;
-    border-bottom: 1px solid #fff; /* 添加下邊框 */
-    cursor: pointer;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #2D88CF;
   }
   
   .mobile-menu-item:hover {
-    background-color: #f0f0f0; /* 滑過效果 */
+    color:#144870;
+    ;
   }
-  
+
+  /* 下拉選單 */
   .mobile-dropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f9f9f9;
+    background-color: #2D88CF;
     width: 100%;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #347bb1;
   }
   
   .mobile-dropdown-item {
-    padding: 10px;
     width: 100%;
+    padding: 10px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    color: #fff;
     cursor: pointer;
+    border-bottom: 1px solid #347bb1;
   }
   
   .mobile-dropdown-item:hover {
-    background-color: #ddd; /* 滑過效果 */
+    color: #144870;
+
   }
   
-  /* 調整輪播圖片，讓它不被選單遮擋 */
-/*.carousel {
-  margin-top: 100px; /* 確保選單不會覆蓋輪播圖片 
-}*/
-
-.carousel img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-  /* 手機版主容器 */
-.mobile-nav-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #2D88CF;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo 部分 */
-.mobile-logo-div {
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
-}
-
-.mobile-logo {
-  height: 75px; /* 可根據需求調整 */
-}
-
-/* 菜單按鈕部分 */
-.menu-icon {
-  padding: 15px;
-  cursor: pointer;
-  text-align: right;
-  font-weight: 900;
-  color: #fff;
-  background-color: #333;
-}
-
-/* 選單項目 */
-.mobile-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #2D88CF;
-  width: 100%;
-}
-
-.mobile-menu-item {
-  padding: 15px;
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #2D88CF;
-  cursor: pointer;
-  font-weight: 900;
-  color:#fff;
-  text-decoration: none;
-}
-
-.mobile-menu-item:hover {
-  background-color: #2D88CF;
-}
-
-/* 下拉選單 */
-.mobile-dropdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #2D88CF;
-  width: 100%;
-  border-top: 1px solid #347bb1;
-}
-
-.mobile-dropdown-item {
-  padding: 10px;
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #347bb1;
-  cursor: pointer;
-}
-
-.mobile-dropdown-item:hover {
-  background-color: #144870;
-}

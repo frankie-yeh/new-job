@@ -237,7 +237,7 @@
   }
 
   .outer-div {
-    padding-top: 50px; /* 確保內容不被固定的選單覆蓋 */
+    padding-top: 0px; /* 確保內容不被固定的選單覆蓋 */
   }
 
   .four-divs {
@@ -258,7 +258,7 @@
     width: 50%;
   }
   .carousel {
-    margin-top: 100px; /* 確保選單不會覆蓋輪播圖片 */
+    margin-top: 74px; /* 確保選單不會覆蓋輪播圖片 */
   }
 
   .carousel img {

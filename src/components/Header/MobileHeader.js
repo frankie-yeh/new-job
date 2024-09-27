@@ -16,9 +16,16 @@ function MobileHeader() {
 
   return (
     <div className="mobile-nav-container">
-      {/* 菜單按鈕部分 */}
+      {/* 左側：Logo 部分 */}
+      <div className="mobile-logo-div">
+        <Link to="/">
+          <img src="../assets/images/car-logo.png" alt="Logo" className="mobile-logo" />
+        </Link>
+      </div>
+
+      {/* 右側：菜單按鈕部分 */}
       <div className="menu-icon" onClick={toggleMenu}>
-      Menu  ☰
+        Menu ☰
       </div>
 
       {/* 手機版選單部分 */}
@@ -40,15 +47,8 @@ function MobileHeader() {
           <div className="mobile-menu-item" onClick={toggleMenu}>選項5</div>
         </div>
       )}
-      {/* Logo 部分 */}
-        <div className="mobile-logo-div">
-            <Link to="/">
-                <img src="../assets/images/car-logo.png" alt="Logo" className="mobile-logo" />
-            </Link>
-        </div>
     </div>
   );
-  
 }
 
 export default MobileHeader;
