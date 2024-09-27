@@ -88,6 +88,8 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px; /* 添加間距 */
+  z-index: 1; /* 确保四个 div 在视频上层 */
+  position: relative;
 }
 
 .car-logo {
@@ -118,6 +120,29 @@
   background-color: lightgray;
   text-align: center;
   margin: 5px;
+}
+
+/* 视频背景容器 */
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 800px; /* 根据需求调整视频高度 */
+  overflow: hidden;
+  z-index: -1; /* 确保视频在最底层 */
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -2;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  opacity: 0.5; /* 根据需求调整透明度 */
 }
 
 /* API 呼叫區域 */

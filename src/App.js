@@ -8,6 +8,7 @@ import FourDivs from './components/FourDivs';
 import ApiComponent from './components/ApiComponent';
 import AboutUs from './components/about-us';
 import Footer from './components/footer';
+import Bgvideo from './components/bgvideo'; // 導入 Bgvideo 組件
 
 
 
@@ -31,6 +32,7 @@ function App() {
                   <Carousel />
                 </div>
                 <FourDivs />
+                <Bgvideo />
                 <Footer />
               </>
             }
