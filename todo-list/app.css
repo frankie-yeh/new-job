@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+  background-color: #80a89e;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 24px;
+  color: #f1e0c5;
+}
+
+input[type='text'] {
+  padding: 10px;
+  border: none;
+  width: 300px;
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5dfb8;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.completed {
+  color: #b72e35;
+}
+
+button {
+  background-color: #55306d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #40254d;
+}
+
+.filters {
+  margin-top: 20px;
+}
+
+.filters button {
+  margin: 0 5px;
+}
