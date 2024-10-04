@@ -10,13 +10,11 @@ import AboutUs from './components/about-us';
 import Footer from './components/footer';
 import Bgvideo from './components/bgvideo'; // 導入 Bgvideo 組件
 
-
-
 function App() {
   return (
     <Router>
       <div className="outer-div">
-      <div className="desktop-header">
+        <div className="desktop-header">
           <Navigation />
         </div>
         <div className="mobile-header">
@@ -38,7 +36,8 @@ function App() {
             }
           />
           <Route path="/api" element={<ApiComponent />} /> {/* API 頁面 */}
-          <Route path="/about-us" element={<AboutUs />} /> {/* 關於我們頁面路由 */}
+          <Route path="/about-us" element={<AboutUs />} />{' '}
+          {/* 關於我們頁面路由 */}
         </Routes>
       </div>
     </Router>

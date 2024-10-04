@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-      '../assets/images/audi-rs-green.jpg',
-      '../assets/images/evo-white.jpg',
-      '../assets/images/wrx-orange.jpg',
-      '../assets/images/bmw-m3.jpg',
+    '../assets/images/audi-rs-green.jpg',
+    '../assets/images/evo-white.jpg',
+    '../assets/images/wrx-orange.jpg',
+    '../assets/images/bmw-m3.jpg',
   ];
 
   useEffect(() => {

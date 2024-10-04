@@ -11,7 +11,9 @@ function ApiComponent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        const response = await axios.get(
+          'https://jsonplaceholder.typicode.com/posts'
+        );
         setData(response.data);
       } catch (error) {
         setError('Error fetching data: ' + error.message);
@@ -24,23 +26,23 @@ function ApiComponent() {
 
   return (
     <div>
-    <Carousel />
-    <div className="api-section">
-      <h2>API Call Example</h2>
-      {error ? (
-        <p className="error">{error}</p>
-      ) : (
-        <ul className="api-list">
-          {data.map((item) => (
-            <li key={item.id} className="api-item">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-    <Footer />
+      <Carousel />
+      <div className="api-section">
+        <h2>API Call Example</h2>
+        {error ? (
+          <p className="error">{error}</p>
+        ) : (
+          <ul className="api-list">
+            {data.map((item) => (
+              <li key={item.id} className="api-item">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <Footer />
     </div>
   );
 }

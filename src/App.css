@@ -15,7 +15,8 @@
 }
 
 /* 左右欄的基本樣式 */
-.left-content, .right-content {
+.left-content,
+.right-content {
   flex: 1;
   text-align: center;
   margin: 0 10px; /* 增加左右的內間距 */
@@ -40,7 +41,7 @@
 
 .menu-item:hover {
   background-color: #ddd; /* 滑過效果 */
-  }
+}
 
 /* 隐藏子菜单 */
 .dropdown {
@@ -49,7 +50,7 @@
   top: 100%; /* 讓子選單出現在父元素的下方 */
   left: 0;
   background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 200px; /* 設置寬度，以便子選單項目對齊 */
   border-radius: 5px; /* 圓角設計 */
@@ -108,7 +109,7 @@
 .car-logo p {
   font-size: 16px;
   margin: 10px;
-  color: #2D88CF;
+  color: #2d88cf;
 }
 
 .four-divs .div1,
@@ -204,11 +205,11 @@
 }
 
 .about-me-left h2 {
-  color:#144870;
+  color: #144870;
   font-size: 20px;
 }
 .about-me-left p {
-  color:#2D88CF;
+  color: #2d88cf;
   font-size: 16px;
 }
 
@@ -223,12 +224,12 @@
 }
 
 .about-me-right h2 {
-  color:#144870;
+  color: #144870;
   font-size: 20px;
 }
 
 .about-me-right p {
-  color:#2D88CF;
+  color: #2d88cf;
   font-size: 16px;
 }
 
@@ -312,7 +313,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #2D88CF;
+  background-color: #2d88cf;
   box-shadow: 0 2px 4px rgb(233, 13, 13);
 }
 
@@ -342,12 +343,11 @@
 }
 
 .menu-item:hover {
-  background-color: #2D88CF;
-  text-decoration:underline;
+  background-color: #2d88cf;
+  text-decoration: underline;
   text-decoration-color: #347bb1;
   text-underline-offset: 8px;
   text-decoration-thickness: 3px;
-  
 }
 
 .dropdown {
@@ -361,7 +361,7 @@
 .dropdown-item {
   padding: 10px;
   cursor: pointer;
-  background-color: #2D88CF;
+  background-color: #2d88cf;
 }
 
 .dropdown-item:hover {

@@ -12,18 +12,28 @@ function Navigation() {
     <div className="nav-container">
       {/* Logo 在左邊 */}
       <div className="nav-logo">
-      <Link to="/">
-        <img src="../assets/images/car-logo.png" alt="Logo" className="desktop-logo" />
-      </Link>
+        <Link to="/">
+          <img
+            src="../assets/images/car-logo.png"
+            alt="Logo"
+            className="desktop-logo"
+          />
+        </Link>
       </div>
 
       {/* 選單項目在右邊 */}
       <div className="nav-menu">
-        <Link to="/" className="menu-item">回首頁</Link>
-        <Link to="/api" className="menu-item">抓API</Link>
-        <div className="menu-item"
+        <Link to="/" className="menu-item">
+          回首頁
+        </Link>
+        <Link to="/api" className="menu-item">
+          抓API
+        </Link>
+        <div
+          className="menu-item"
           onMouseOver={() => toggleDropdown(true)}
-          onMouseLeave={() => toggleDropdown(false)}>
+          onMouseLeave={() => toggleDropdown(false)}
+        >
           選項3 {isDropdownOpen ? '▲' : '▼'}
           {isDropdownOpen && (
             <div className="dropdown">
@@ -33,7 +43,9 @@ function Navigation() {
             </div>
           )}
         </div>
-        <Link to="/about-us" className="menu-item">自我介紹</Link>
+        <Link to="/about-us" className="menu-item">
+          自我介紹
+        </Link>
         <div className="menu-item">選項5</div>
       </div>
     </div>

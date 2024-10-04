@@ -19,7 +19,11 @@ function MobileHeader() {
       {/* 左側：Logo 部分 */}
       <div className="mobile-logo-div">
         <Link to="/">
-          <img src="../assets/images/car-logo.png" alt="Logo" className="mobile-logo" />
+          <img
+            src="../assets/images/car-logo.png"
+            alt="Logo"
+            className="mobile-logo"
+          />
         </Link>
       </div>
 
@@ -31,20 +35,38 @@ function MobileHeader() {
       {/* 手機版選單部分 */}
       {isMenuOpen && (
         <div className="mobile-menu">
-          <Link to="/" className="mobile-menu-item" onClick={toggleMenu}>回首頁</Link>
-          <Link to="/api" className="mobile-menu-item" onClick={toggleMenu}>抓API</Link>
+          <Link to="/" className="mobile-menu-item" onClick={toggleMenu}>
+            回首頁
+          </Link>
+          <Link to="/api" className="mobile-menu-item" onClick={toggleMenu}>
+            抓API
+          </Link>
           <div className="mobile-menu-item" onClick={toggleDropdown}>
             選項3 {isDropdownOpen ? '▲' : '▼'}
             {isDropdownOpen && (
               <div className="mobile-dropdown">
-                <div className="mobile-dropdown-item" onClick={toggleMenu}>子選項1</div>
-                <div className="mobile-dropdown-item" onClick={toggleMenu}>子選項2</div>
-                <div className="mobile-dropdown-item" onClick={toggleMenu}>子選項3</div>
+                <div className="mobile-dropdown-item" onClick={toggleMenu}>
+                  子選項1
+                </div>
+                <div className="mobile-dropdown-item" onClick={toggleMenu}>
+                  子選項2
+                </div>
+                <div className="mobile-dropdown-item" onClick={toggleMenu}>
+                  子選項3
+                </div>
               </div>
             )}
           </div>
-          <Link to="/about-us" className="mobile-menu-item" onClick={toggleMenu}>自我介紹</Link>
-          <div className="mobile-menu-item" onClick={toggleMenu}>選項5</div>
+          <Link
+            to="/about-us"
+            className="mobile-menu-item"
+            onClick={toggleMenu}
+          >
+            自我介紹
+          </Link>
+          <div className="mobile-menu-item" onClick={toggleMenu}>
+            選項5
+          </div>
         </div>
       )}
     </div>
