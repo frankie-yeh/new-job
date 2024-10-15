@@ -16,19 +16,20 @@ const TodoList = () => {
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
-      setTasks(storedTasks);
+      setTasks(storedTasks); // 如果 localStorage 中有待辦事項，設置到狀態中
     }
-  }, []);
+  }, []); // 在第一次渲染時讀取
 
   // 每當 tasks 狀態改變時，保存到 localStorage
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+  }, [tasks]); // 每當 tasks 改變，將其保存到 localStorage
 
   // 新增待辦事項
   const addTask = (text) => {
     if (text) {
-      setTasks([...tasks, { text, completed: false }]);
+      setTasks([...tasks, { text, completed: false }]); // 將新待辦事項加入到列表中
+      setInput(''); // 清空輸入欄位
     }
   };
 
@@ -36,12 +37,12 @@ const TodoList = () => {
   const toggleComplete = (index) => {
     const newTasks = [...tasks];
     newTasks[index].completed = !newTasks[index].completed;
-    setTasks(newTasks);
+    setTasks(newTasks); // 更新完成狀態
   };
 
   // 刪除待辦事項
   const deleteTask = (index) => {
-    setTasks(tasks.filter((_, i) => i !== index));
+    setTasks(tasks.filter((_, i) => i !== index)); // 過濾掉刪除的事項
   };
 
   // 篩選顯示的待辦事項
