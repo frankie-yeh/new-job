@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Carousel from './Carousel'; // 確保已經有 Carousel 組件
-import Footer from './footer'; // 確保已經有 Footer 組件
+import Footer from './Footer'; // 確保已經有 Footer 組件
 
 function AboutUs() {
   return (

@@ -14,7 +14,7 @@ function Navigation() {
       <div className="nav-logo">
         <Link to="/">
           <img
-            src="../assets/images/car-logo.png"
+            src="/assets/images/car-logo.png"
             alt="Logo"
             className="desktop-logo"
           />
@@ -46,7 +46,9 @@ function Navigation() {
         <Link to="/about-us" className="menu-item">
           自我介紹
         </Link>
-        <div className="menu-item">選項5</div>
+        <Link to="/TodoList" className="menu-item">
+          待辦事項
+        </Link>
       </div>
     </div>
   );

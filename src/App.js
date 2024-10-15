@@ -7,8 +7,9 @@ import Carousel from './components/Carousel';
 import FourDivs from './components/FourDivs';
 import ApiComponent from './components/ApiComponent';
 import AboutUs from './components/about-us';
-import Footer from './components/footer';
-import Bgvideo from './components/bgvideo'; // 導入 Bgvideo 組件
+import Footer from './components/Footer';
+import Bgvideo from './components/Bgvideo'; // 導入 Bgvideo 組件
+import TodoList from './components/Todo/TodoList'; // 導入 TodoList 組件
 
 function App() {
   return (
@@ -36,8 +37,9 @@ function App() {
             }
           />
           <Route path="/api" element={<ApiComponent />} /> {/* API 頁面 */}
-          <Route path="/about-us" element={<AboutUs />} />{' '}
+          <Route path="/about-us" element={<AboutUs />} />
           {/* 關於我們頁面路由 */}
+          <Route path="/TodoList" element={<TodoList />} />
         </Routes>
       </div>
     </Router>
