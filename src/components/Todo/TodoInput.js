@@ -5,7 +5,7 @@ const TodoInput = ({ input, setInput, addTask }) => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       addTask(input);
-      setInput(''); // 清空輸入欄位
+      setInput(''); // 清空輸入框
     }
   };
 
@@ -20,7 +20,7 @@ const TodoInput = ({ input, setInput, addTask }) => {
   );
 };
 
-// 為 props 添加 PropTypes 驗證
+// 為 props 增加 PropTypes 驗證
 TodoInput.propTypes = {
   input: PropTypes.string.isRequired,
   setInput: PropTypes.func.isRequired,

@@ -1,7 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types'; // 引入 PropTypes
+import PropTypes from 'prop-types';
 
 const TodoItem = ({ task, toggleComplete, deleteTask }) => {
+  console.log('Rendering TodoItem with task:', task); // 增加日誌
+
   return (
     <li className={`todo-item ${task.completed ? 'completed' : ''}`}>
       <input
@@ -9,15 +11,14 @@ const TodoItem = ({ task, toggleComplete, deleteTask }) => {
         checked={task.completed}
         onChange={toggleComplete}
       />
-      <span className={task.completed ? 'task-completed' : ''}>
+      <span className={`todo-text ${task.completed ? 'completed-text' : ''}`}>
         {task.text}
       </span>
-      <button onClick={deleteTask}>刪除</button>
+      <button onClick={deleteTask}>X</button>
     </li>
   );
 };
 
-// 為 props 添加 PropTypes 驗證
 TodoItem.propTypes = {
   task: PropTypes.shape({
     text: PropTypes.string.isRequired,

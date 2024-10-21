@@ -26,7 +26,7 @@ const TodoFilter = ({ filter, setFilter }) => {
   );
 };
 
-// 為 props 添加 PropTypes 驗證
+// 為 props 增加 PropTypes 驗證
 TodoFilter.propTypes = {
   filter: PropTypes.string.isRequired,
   setFilter: PropTypes.func.isRequired,
