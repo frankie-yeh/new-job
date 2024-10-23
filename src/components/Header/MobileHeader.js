@@ -45,23 +45,19 @@ function MobileHeader() {
             選項3 {isDropdownOpen ? '▲' : '▼'}
             {isDropdownOpen && (
               <div className="mobile-dropdown">
-                <div className="mobile-dropdown-item" onClick={toggleMenu}>
-                  子選項1
-                </div>
-                <div className="mobile-dropdown-item" onClick={toggleMenu}>
-                  子選項2
-                </div>
-                <div className="mobile-dropdown-item" onClick={toggleMenu}>
-                  子選項3
-                </div>
+                <Link to="/TodoList" className="menu-item">
+                  待辦事項1 ( local-Storage )
+                </Link>
+                <Link to="/TodoList" className="menu-item">
+                  待辦事項2 ( Redux )
+                </Link>
+                <Link to="/TodoList" className="menu-item">
+                  待辦事項3 ( localStorage )
+                </Link>
               </div>
             )}
           </div>
-          <Link
-            to="/about-us"
-            className="mobile-menu-item"
-            onClick={toggleMenu}
-          >
+          <Link to="/AboutUs" className="mobile-menu-item" onClick={toggleMenu}>
             自我介紹
           </Link>
           <Link

@@ -34,16 +34,22 @@ function Navigation() {
           onMouseOver={() => toggleDropdown(true)}
           onMouseLeave={() => toggleDropdown(false)}
         >
-          選項3 {isDropdownOpen ? '▲' : '▼'}
+          待辦事項 {isDropdownOpen ? '▲' : '▼'}
           {isDropdownOpen && (
             <div className="dropdown">
-              <div className="dropdown-item">子選項1</div>
-              <div className="dropdown-item">子選項2</div>
-              <div className="dropdown-item">子選項3</div>
+              <Link to="/TodoList" className="menu-item">
+                待辦事項1 ( local-Storage )
+              </Link>
+              <Link to="/TodoList" className="menu-item">
+                待辦事項2 ( Redux )
+              </Link>
+              <Link to="/TodoList" className="menu-item">
+                待辦事項3 ( localStorage )
+              </Link>
             </div>
           )}
         </div>
-        <Link to="/about-us" className="menu-item">
+        <Link to="/AboutUs" className="menu-item">
           自我介紹
         </Link>
         <Link to="/TodoList" className="menu-item">

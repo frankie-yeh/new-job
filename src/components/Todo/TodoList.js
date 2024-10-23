@@ -3,19 +3,19 @@ import TodoItem from './TodoItem'; // 引入單個待辦事項
 import TodoFilter from './TodoFilter'; // 篩選按鈕
 import TodoInput from './TodoInput'; // 輸入框
 import '../../styles/Todo.css'; // 引入樣式
-import Wrapper from '../../components/Bast/Wrapper'; // 引入包裝组件
+import Wrapper from '../Base/Wrapper'; // 引入包裝组件
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]); // 保存待辦事项
   const [input, setInput] = useState(''); // 新增的待辦事项
-  const [filter, setFilter] = useState('全部'); // 目前待辦事項
+  const [filter, setFilter] = useState('全部'); // 目前篩選狀態
 
   // 使用 localStorage 保存待辦事項
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
       console.log('Stored tasks found:', storedTasks); // 添加日誌
-      setTasks(storedTasks); // 如果 localStorage 中有待辦事項，設置狀態中
+      setTasks(storedTasks); // 如果 localStorage 中有待辦事項，設置狀態
     }
   }, []); // 在第一次渲染時讀取
 
@@ -25,24 +25,26 @@ const TodoList = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]); // 當 tasks 改變時，保存到 localStorage
 
-  // 新增待辦事項
+  // 新增待辦事項，新增的每一個任務都會有一個唯一的 id
   const addTask = (text) => {
     if (text) {
-      setTasks([...tasks, { text, completed: false }]); // 將待辦事項加入列表裡
+      const newTask = { id: Date.now(), text, completed: false }; // 使用 Date.now() 生成唯一 id
+      setTasks([...tasks, newTask]); // 將待辦事項加入列表裡
       setInput(''); // 清空輸入框
     }
   };
 
   // 切换待辦事項完成狀態
-  const toggleComplete = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
+  const toggleComplete = (id) => {
+    const newTasks = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
     setTasks(newTasks); // 更新完成狀態
   };
 
   // 删除待辦事項
-  const deleteTask = (index) => {
-    setTasks(tasks.filter((_, i) => i !== index)); // 過濾掉删除的事項
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id)); // 過濾掉有該 id 的待辦事項
   };
 
   // 篩選的待辦事項
@@ -63,12 +65,12 @@ const TodoList = () => {
         <TodoInput input={input} setInput={setInput} addTask={addTask} />{' '}
         {/* 輸入框 */}
         <ul>
-          {filteredTasks.map((task, index) => (
+          {filteredTasks.map((task) => (
             <TodoItem
-              key={index}
+              key={task.id}
               task={task}
-              toggleComplete={() => toggleComplete(index)}
-              deleteTask={() => deleteTask(index)}
+              toggleComplete={() => toggleComplete(task.id)}
+              deleteTask={() => deleteTask(task.id)}
             />
           ))}
         </ul>

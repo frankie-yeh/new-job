@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // 確保 axios 被引入
-import Wrapper from '../components/Bast/Wrapper'; // 引入包裝組件
+import Wrapper from './Base/Wrapper'; // 引入包裝組件
 
 function ApiComponent() {
   const [data, setData] = useState([]);

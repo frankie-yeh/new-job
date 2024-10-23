@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import Wrapper from '../components/Bast/Wrapper'; // 引入包裝組件
+import Wrapper from './Base/Wrapper'; // 引入包裝組件
 function AboutUs() {
   return (
     <div>
