@@ -12,7 +12,7 @@ function Carousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide) => (currentSlide + 1) % slides.length);
-    }, 3000); // 每隔3秒切換一張圖片
+    }, 3000); // 每隔3秒切換圖片
 
     return () => clearInterval(interval); // 清除定時器
   }, [slides.length]);
