@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '../Header/Header'; // 判別組件
 import Footer from '../Footer'; // 頁尾組件
-import PropTypes from 'prop-types'; // 添加 PropTypes
-import '../../App.css'; // 引入樣式
+import PropTypes from 'prop-types'; // 增加 PropTypes
+import '../../App.css'; // 導入樣式
 
 const Wrapper = ({ children }) => {
   return (
@@ -13,9 +13,9 @@ const Wrapper = ({ children }) => {
     </div>
   );
 };
-// 定义 PropTypes 验证
+// 設定 PropTypes 驗證
 Wrapper.propTypes = {
-  children: PropTypes.node.isRequired, // 验证 children 属性
+  children: PropTypes.node.isRequired,
 };
 
 export default Wrapper;
