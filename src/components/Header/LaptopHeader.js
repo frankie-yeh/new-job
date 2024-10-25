@@ -40,11 +40,11 @@ function Navigation() {
               <Link to="/TodoList" className="menu-item">
                 待辦事項1 ( local-Storage )
               </Link>
-              <Link to="/TodoList" className="menu-item">
+              <Link to="/TodoListRedux" className="menu-item">
                 待辦事項2 ( Redux )
               </Link>
-              <Link to="/TodoList" className="menu-item">
-                待辦事項3 ( localStorage )
+              <Link to="/TodoApi" className="menu-item">
+                待辦事項3 ( HookAPI )
               </Link>
             </div>
           )}

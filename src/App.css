@@ -45,15 +45,14 @@
 
 /* 隐藏子菜单 */
 .dropdown {
-  display: none;
+  display: flex; /* 使用 flex 布局 */
+  flex-direction: column; /* 将方向设为列，实现垂直排列 */
   position: absolute;
-  top: 100%; /* 讓子選單出現在父元素的下方 */
-  left: 0;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  width: 200px; /* 設置寬度，以便子選單項目對齊 */
-  border-radius: 5px; /* 圓角設計 */
+  background-color: #2d88cf;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  margin: 0 18px;
+  width: 300px;
 }
 
 /* 当鼠标悬停在菜单项上时显示子菜单 */
@@ -314,7 +313,6 @@
   align-items: center;
   padding: 20px;
   background-color: #2d88cf;
-  box-shadow: 0 2px 4px rgb(233, 13, 13);
 }
 
 /* 左邊的 Logo 部分 */
@@ -352,7 +350,7 @@
 
 .dropdown {
   position: absolute;
-  background-color: #fff;
+  background-color: #2d88cf;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 5px;
   margin: 0 18px; /*用margin拉開距離*/

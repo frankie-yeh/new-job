@@ -8,7 +8,7 @@ import Wrapper from '../Base/Wrapper'; // 包裝组件
 // 定義 reducer 函數來處理不同的 action
 const todoReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_TASK':
+    case 'ADD_TASK': {
       const newTask = {
         id: Date.now(),
         text: action.payload,
@@ -18,6 +18,8 @@ const todoReducer = (state, action) => {
         ...state,
         tasks: [...state.tasks, newTask],
       };
+    }
+
     case 'TOGGLE_COMPLETE':
       return {
         ...state,
@@ -27,26 +29,31 @@ const todoReducer = (state, action) => {
             : task
         ),
       };
+
     case 'DELETE_TASK':
       return {
         ...state,
         tasks: state.tasks.filter((task) => task.id !== action.payload),
       };
+
     case 'SET_FILTER':
       return {
         ...state,
         filter: action.payload,
       };
+
     case 'LOAD_TASKS':
       return {
         ...state,
         tasks: action.payload || [],
       };
+
     default:
       return state;
   }
 };
 
+// 定義 TodoListHooks 組件
 const TodoListHooks = () => {
   // 使用 useReducer 來管理狀態
   const [state, dispatch] = useReducer(todoReducer, {
@@ -79,17 +86,17 @@ const TodoListHooks = () => {
     }
   };
 
-  // 切换待辦事項完成狀態
+  // 切換待辦事項完成狀態
   const toggleComplete = (id) => {
     dispatch({ type: 'TOGGLE_COMPLETE', payload: id });
   };
 
-  // 删除待辦事項
+  // 刪除待辦事項
   const deleteTask = (id) => {
     dispatch({ type: 'DELETE_TASK', payload: id });
   };
 
-  // 篩選的待辦事項
+  // 篩選待辦事項
   const filteredTasks = state.tasks.filter((task) =>
     state.filter === '全部'
       ? true

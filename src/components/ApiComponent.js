@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // 確保 axios 被引入
-import Wrapper from './Base/Wrapper'; // 引入包裝組件
 
 function ApiComponent() {
   const [data, setData] = useState([]);
@@ -25,23 +24,21 @@ function ApiComponent() {
 
   return (
     <div>
-      <Wrapper>
-        <div className="api-section">
-          <h2>API Call Example</h2>
-          {error ? (
-            <p className="error">{error}</p>
-          ) : (
-            <ul className="api-list">
-              {data.map((item) => (
-                <li key={item.id} className="api-item">
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </Wrapper>
+      <div className="api-section">
+        <h2>API Call Example</h2>
+        {error ? (
+          <p className="error">{error}</p>
+        ) : (
+          <ul className="api-list">
+            {data.map((item) => (
+              <li key={item.id} className="api-item">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

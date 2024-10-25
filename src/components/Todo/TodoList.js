@@ -3,7 +3,6 @@ import TodoItem from './TodoItem'; // 引入單個待辦事項
 import TodoFilter from './TodoFilter'; // 篩選按鈕
 import TodoInput from './TodoInput'; // 輸入框
 import '../../styles/Todo.css'; // 引入樣式
-import Wrapper from '../Base/Wrapper'; // 引入包裝组件
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]); // 保存待辦事项
@@ -59,24 +58,22 @@ const TodoList = () => {
   console.log('Filtered tasks:', filteredTasks); // 添加日誌
 
   return (
-    <Wrapper>
-      <div className="todo-container">
-        <h1>你忘記的事</h1>
-        <TodoInput input={input} setInput={setInput} addTask={addTask} />{' '}
-        {/* 輸入框 */}
-        <ul>
-          {filteredTasks.map((task) => (
-            <TodoItem
-              key={task.id}
-              task={task}
-              toggleComplete={() => toggleComplete(task.id)}
-              deleteTask={() => deleteTask(task.id)}
-            />
-          ))}
-        </ul>
-        <TodoFilter filter={filter} setFilter={setFilter} /> {/* 篩選按鈕 */}
-      </div>
-    </Wrapper>
+    <div className="todo-container">
+      <h1>你忘記的事</h1>
+      <TodoInput input={input} setInput={setInput} addTask={addTask} />{' '}
+      {/* 輸入框 */}
+      <ul>
+        {filteredTasks.map((task) => (
+          <TodoItem
+            key={task.id}
+            task={task}
+            toggleComplete={() => toggleComplete(task.id)}
+            deleteTask={() => deleteTask(task.id)}
+          />
+        ))}
+      </ul>
+      <TodoFilter filter={filter} setFilter={setFilter} /> {/* 篩選按鈕 */}
+    </div>
   );
 };
 
