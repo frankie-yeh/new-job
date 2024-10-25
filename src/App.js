@@ -5,7 +5,6 @@ import Carousel from './components/Carousel';
 import FourDivs from './components/FourDivs';
 import ApiComponent from './components/ApiComponent';
 import AboutUs from './components/AboutUs';
-import Footer from './components/Footer';
 import BgVideo from './components/BgVideo'; // 導入 BgVideo 組件
 import TodoList from './components/Todo/TodoList'; // 導入 TodoList 組件
 import Wrapper from './components/Base/Wrapper';
@@ -26,7 +25,6 @@ function App() {
                   </div>
                   <FourDivs />
                   <BgVideo />
-                  <Footer />
                 </>
               }
             />
