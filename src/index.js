@@ -9,7 +9,7 @@ import Store from './components/Todo/List-Redux/Store'; // 確保這裡的路徑
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // 使用 createRoot 後直接呼叫 root.render
-  <Provider Store={Store}>
+  <Provider store={Store}>
     <App />
   </Provider>
 );
