@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import Store from '../src/components/Todo/List-Redux/Store'; // 確保這裡的路徑正確
+import Store from './components/Todo/List-Redux/Store'; // 確保這裡的路徑正確
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
