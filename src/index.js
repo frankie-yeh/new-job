@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import Store from './components/Todo/List-Redux/Store'; // 確保這裡的路徑正確
+import Store from './components/Todo/List-Redux/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // 使用 createRoot 後直接呼叫 root.render
+  // 使用 createRoot 呼叫 root.render
   <Provider store={Store}>
     <App />
   </Provider>

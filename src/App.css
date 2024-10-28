@@ -338,6 +338,8 @@
   border-radius: 5px;
   text-decoration: none;
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-item:hover {
@@ -353,11 +355,11 @@
   background-color: #2d88cf;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 5px;
-  margin: 0 18px; /*用margin拉開距離*/
+  margin: 30px 0px; /*用margin拉開距離*/
 }
 
 .dropdown-item {
-  padding: 10px;
+  padding: px;
   cursor: pointer;
   background-color: #2d88cf;
 }

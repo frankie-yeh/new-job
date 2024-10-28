@@ -26,7 +26,7 @@ const TodoListRedux = () => {
     }
   };
 
-  // 根據篩選條件過濾待辦事項
+  // 篩選條件過濾待辦事項
   const filteredTasks = tasks.filter((task) =>
     filter === '全部'
       ? true
