@@ -3,7 +3,6 @@ import TodoItem from './TodoItem'; // 引入單個待辦事項
 import TodoFilter from './TodoFilter'; // 篩選按鈕
 import TodoInput from './TodoInput'; // 輸入框
 import '../../styles/Todo.css'; // 引入樣式
-import Wrapper from '../Base/Wrapper'; // 包裝组件
 
 // 定義 reducer 函數來處理不同的 action
 const todoReducer = (state, action) => {
@@ -55,7 +54,7 @@ const todoReducer = (state, action) => {
 
 // 定義 TodoListHooks 組件
 const TodoListHooks = () => {
-  // 使用 useReducer 來管理狀態
+  // 使用 useReducer 來管理本地狀態
   const [state, dispatch] = useReducer(todoReducer, {
     tasks: [],
     filter: '全部',
@@ -73,9 +72,7 @@ const TodoListHooks = () => {
 
   // 當 tasks 改變時，保存到 localStorage
   useEffect(() => {
-    if (state.tasks.length > 0) {
-      localStorage.setItem('tasks', JSON.stringify(state.tasks));
-    }
+    localStorage.setItem('tasks', JSON.stringify(state.tasks));
   }, [state.tasks]);
 
   // 新增待辦事項
@@ -106,30 +103,28 @@ const TodoListHooks = () => {
   );
 
   return (
-    <Wrapper>
-      <div className="todo-container">
-        <h1>Hooks API 待辦事項</h1>
-        <TodoInput input={input} setInput={setInput} addTask={addTask} />{' '}
-        {/* 輸入框 */}
-        <ul>
-          {filteredTasks.map((task) => (
-            <TodoItem
-              key={task.id}
-              task={task}
-              toggleComplete={() => toggleComplete(task.id)}
-              deleteTask={() => deleteTask(task.id)}
-            />
-          ))}
-        </ul>
-        <TodoFilter
-          filter={state.filter}
-          setFilter={(newFilter) =>
-            dispatch({ type: 'SET_FILTER', payload: newFilter })
-          }
-        />{' '}
-        {/* 篩選按鈕 */}
-      </div>
-    </Wrapper>
+    <div className="todo-container">
+      <h1>Hooks API 待辦事項</h1>
+      <TodoInput input={input} setInput={setInput} addTask={addTask} />{' '}
+      {/* 輸入框 */}
+      <ul>
+        {filteredTasks.map((task) => (
+          <TodoItem
+            key={task.id}
+            task={task}
+            toggleComplete={() => toggleComplete(task.id)}
+            deleteTask={() => deleteTask(task.id)}
+          />
+        ))}
+      </ul>
+      <TodoFilter
+        filter={state.filter}
+        setFilter={(newFilter) =>
+          dispatch({ type: 'SET_FILTER', payload: newFilter })
+        }
+      />{' '}
+      {/* 篩選按鈕 */}
+    </div>
   );
 };
 

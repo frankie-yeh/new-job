@@ -1,4 +1,8 @@
 // src/components/TodoListRedux.js
+import TodoItem from '../TodoItem'; // 引入單個待辦事項
+import TodoFilter from '../TodoFilter'; // 篩選按鈕
+import TodoInput from '../TodoInput'; // 輸入框
+import '../../../styles/Todo.css'; // 引入樣式
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -6,11 +10,7 @@ import {
   toggleComplete,
   deleteTask,
   setFilter,
-} from '../redux/todoSlice';
-import TodoItem from './TodoItem'; // 單個待辦事項
-import TodoFilter from './TodoFilter'; // 篩選按鈕
-import TodoInput from './TodoInput'; // 輸入框
-import Wrapper from '../Base/Wrapper'; // 包裝组件
+} from '../List-Redux/TodoSlice';
 
 const TodoListRedux = () => {
   const [input, setInput] = useState('');
@@ -36,32 +36,30 @@ const TodoListRedux = () => {
   );
 
   return (
-    <Wrapper>
-      <div className="todo-container">
-        <h1>Redux 待辦事項</h1>
-        <TodoInput
-          input={input}
-          setInput={setInput}
-          addTask={handleAddTask}
-        />{' '}
-        {/* 輸入框 */}
-        <ul>
-          {filteredTasks.map((task) => (
-            <TodoItem
-              key={task.id}
-              task={task}
-              toggleComplete={() => dispatch(toggleComplete(task.id))}
-              deleteTask={() => dispatch(deleteTask(task.id))}
-            />
-          ))}
-        </ul>
-        <TodoFilter
-          filter={filter}
-          setFilter={(newFilter) => dispatch(setFilter(newFilter))}
-        />{' '}
-        {/* 篩選按鈕 */}
-      </div>
-    </Wrapper>
+    <div className="todo-container">
+      <h1>Redux 待辦事項</h1>
+      <TodoInput
+        input={input}
+        setInput={setInput}
+        addTask={handleAddTask}
+      />{' '}
+      {/* 輸入框 */}
+      <ul>
+        {filteredTasks.map((task) => (
+          <TodoItem
+            key={task.id}
+            task={task}
+            toggleComplete={() => dispatch(toggleComplete(task.id))}
+            deleteTask={() => dispatch(deleteTask(task.id))}
+          />
+        ))}
+      </ul>
+      <TodoFilter
+        filter={filter}
+        setFilter={(newFilter) => dispatch(setFilter(newFilter))}
+      />{' '}
+      {/* 篩選按鈕 */}
+    </div>
   );
 };
 
