@@ -8,7 +8,6 @@ import Store from './components/Todo/List-Redux/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // 使用 createRoot 呼叫 root.render
   <Provider store={Store}>
     <App />
   </Provider>

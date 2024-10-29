@@ -12,7 +12,7 @@ const todoSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       const newTask = {
-        id: Date.now(),
+        id: Date.now(), // 使用唯一 ID
         text: action.payload,
         completed: false,
       };
@@ -30,10 +30,15 @@ const todoSlice = createSlice({
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
+    setTasks: (state, action) => {
+      // 若從 API 取得資料，可以使用此 reducer 更新 tasks 狀態
+      state.tasks = action.payload;
+    },
   },
 });
 
-export const { addTask, toggleComplete, deleteTask, setFilter } =
+// 導出 actions
+export const { addTask, toggleComplete, deleteTask, setFilter, setTasks } =
   todoSlice.actions;
 
 export default todoSlice.reducer;
