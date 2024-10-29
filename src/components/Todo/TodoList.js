@@ -6,10 +6,10 @@ import '../../styles/Todo.css'; // 引用CSS
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]); // 保存待辦事项
-  const [input, setInput] = useState(''); // 新增的待辦事项
+  const [input, setInput] = useState(''); // 新增待辦事项
   const [filter, setFilter] = useState('全部'); // 目前篩選狀態
 
-  // 使用 localStorage 保存待辦事項
+  // 用 localStorage 保存待辦事項
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
@@ -38,7 +38,7 @@ const TodoList = () => {
     const newTasks = tasks.map((task) =>
       task.id === id ? { ...task, completed: !task.completed } : task
     );
-    setTasks(newTasks); // 更新完成狀態
+    setTasks(newTasks); // 更新完狀態
   };
 
   // 删除待辦事項
@@ -46,7 +46,7 @@ const TodoList = () => {
     setTasks(tasks.filter((task) => task.id !== id)); // 過濾掉指定 id 的待辦事項
   };
 
-  // 篩選的待辦事項
+  // 篩選待辦事項
   const filteredTasks = tasks.filter((task) =>
     filter === '全部'
       ? true
