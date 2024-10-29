@@ -1,10 +1,10 @@
 import React, { useReducer, useState, useEffect } from 'react';
-import TodoItem from './TodoItem'; // 引入單個待辦事項
+import TodoItem from './TodoItem'; // 引用單個待辦事項
 import TodoFilter from './TodoFilter'; // 篩選按鈕
 import TodoInput from './TodoInput'; // 輸入框
-import '../../styles/Todo.css'; // 引入樣式
+import '../../styles/Todo.css'; // 引用CSS
 
-// 定義 reducer 函數來處理不同的 action
+// 用 reducer 來處理不一樣的 action
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TASK': {
@@ -52,21 +52,21 @@ const todoReducer = (state, action) => {
   }
 };
 
-// 定義 TodoListHooks 組件
+// 用 TodoListHooks 組件
 const TodoListHooks = () => {
-  // 使用 useReducer 來管理本地狀態
+  // 用 useReducer 來管理本地狀態
   const [state, dispatch] = useReducer(todoReducer, {
     tasks: [],
     filter: '全部',
   });
 
-  const [input, setInput] = useState(''); // 新增待辦事項的輸入框
+  const [input, setInput] = useState(''); // 新增待辦事項輸入框
 
-  // 使用 localStorage 保存與讀取待辦事項
+  // 用 localStorage 來保存跟讀取待辦事項
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
-      dispatch({ type: 'LOAD_TASKS', payload: storedTasks }); // 加載本地儲存的資料
+      dispatch({ type: 'LOAD_TASKS', payload: storedTasks }); // 載入本地存放的資料
     }
   }, []);
 

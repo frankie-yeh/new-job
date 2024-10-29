@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '../Header/Header'; // 判別組件
-import Footer from '../Footer'; // 頁尾組件
+import Footer from '../Footer';
 import PropTypes from 'prop-types'; // 增加 PropTypes
-import '../../App.css'; // 導入樣式
+import '../../App.css';
 
 const Wrapper = ({ children }) => {
   return (

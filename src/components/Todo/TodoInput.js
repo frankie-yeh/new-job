@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'; // 引入 PropTypes
+import PropTypes from 'prop-types'; // 引用 PropTypes
 
 const TodoInput = ({ input, setInput, addTask }) => {
   const handleKeyDown = (e) => {

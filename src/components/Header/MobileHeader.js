@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../../styles/MobileHeader.css'; // 確保引入了 CSS 文件
+import '../../styles/MobileHeader.css'; // 引用手機版CSS
 
 function MobileHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ function MobileHeader() {
         </Link>
       </div>
 
-      {/* 右側：菜單按鈕部分 */}
+      {/* 右側：選單部分 */}
       <div className="menu-icon" onClick={toggleMenu}>
         Menu ☰
       </div>

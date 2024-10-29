@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // 確保 axios 被引入
+import axios from 'axios'; // 確保 axios 被引用
 
 function ApiComponent() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
-  // 使用 useEffect 在組件掛載時執行 API 請求
+  // 用 useEffect 在組件掛載時執行 API
   useEffect(() => {
     const fetchData = async () => {
       try {

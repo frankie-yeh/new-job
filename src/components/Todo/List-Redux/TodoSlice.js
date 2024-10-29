@@ -1,4 +1,3 @@
-// src/redux/todoSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -31,7 +30,7 @@ const todoSlice = createSlice({
       state.filter = action.payload;
     },
     setTasks: (state, action) => {
-      // 若從 API 取得資料，可以使用此 reducer 更新 tasks 狀態
+      // 從 API 拿資料，用 reducer 更新 tasks
       state.tasks = action.payload;
     },
   },
