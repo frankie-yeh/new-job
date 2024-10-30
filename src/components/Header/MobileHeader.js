@@ -1,6 +1,18 @@
+// MobileHeader.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../../styles/MobileHeader.css'; // 引用手機版CSS
+import { Link as RouterLink } from 'react-router-dom';
+import {
+  Box,
+  Flex,
+  Image,
+  Link,
+  Button,
+  IconButton,
+  Collapse,
+  MenuList,
+  MenuItem,
+} from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 function MobileHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,61 +27,83 @@ function MobileHeader() {
   };
 
   return (
-    <div className="mobile-nav-container">
-      {/* 左側：Logo 部分 */}
-      <div className="mobile-logo-div">
-        <Link to="/">
-          <img
+    <Box bg="blue.500" color="white">
+      <Flex align="center" justify="space-between" p={4}>
+        {/* 左側：Logo 部分 */}
+        <Link as={RouterLink} to="/">
+          <Image
             src="../assets/images/car-logo.png"
             alt="Logo"
-            className="mobile-logo"
+            boxSize="50px"
           />
         </Link>
-      </div>
 
-      {/* 右側：選單部分 */}
-      <div className="menu-icon" onClick={toggleMenu}>
-        Menu ☰
-      </div>
+        {/* 右側：選單部分 */}
+        <IconButton
+          icon={<HamburgerIcon />}
+          variant="outline"
+          colorScheme="white"
+          onClick={toggleMenu}
+          aria-label="Toggle Menu"
+        />
+      </Flex>
 
       {/* 手機版選單部分 */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
-          <Link to="/" className="mobile-menu-item" onClick={toggleMenu}>
+      <Collapse in={isMenuOpen} animateOpacity>
+        <Box bg="blue.600" p={4}>
+          <Link
+            as={RouterLink}
+            to="/"
+            onClick={toggleMenu}
+            display="block"
+            py={2}
+          >
             回首頁
           </Link>
-          <Link to="/api" className="mobile-menu-item" onClick={toggleMenu}>
+          <Link
+            as={RouterLink}
+            to="/api"
+            onClick={toggleMenu}
+            display="block"
+            py={2}
+          >
             抓API
           </Link>
-          <div className="mobile-menu-item" onClick={toggleDropdown}>
-            選項3 {isDropdownOpen ? '▲' : '▼'}
-            {isDropdownOpen && (
-              <div className="mobile-dropdown">
-                <Link to="/TodoList" className="menu-item">
+          <Box>
+            <Button
+              variant="link"
+              onClick={toggleDropdown}
+              color="white"
+              py={2}
+            >
+              選項3 {isDropdownOpen}
+            </Button>
+            <Collapse in={isDropdownOpen}>
+              <MenuList bg="blue.700" border="none">
+                <MenuItem as={RouterLink} to="/TodoList">
                   待辦事項1 ( local-Storage )
-                </Link>
-                <Link to="/TodoListRedux" className="menu-item">
+                </MenuItem>
+                <MenuItem as={RouterLink} to="/TodoListRedux">
                   待辦事項2 ( Redux )
-                </Link>
-                <Link to="/TodoApi" className="menu-item">
+                </MenuItem>
+                <MenuItem as={RouterLink} to="/TodoApi">
                   待辦事項3 ( HookAPI )
-                </Link>
-              </div>
-            )}
-          </div>
-          <Link to="/AboutUs" className="mobile-menu-item" onClick={toggleMenu}>
+                </MenuItem>
+              </MenuList>
+            </Collapse>
+          </Box>
+          <Link
+            as={RouterLink}
+            to="/AboutUs"
+            onClick={toggleMenu}
+            display="block"
+            py={2}
+          >
             自我介紹
           </Link>
-          <Link
-            to="/TodoList"
-            className="mobile-menu-item"
-            onClick={toggleMenu}
-          >
-            待辦事項
-          </Link>
-        </div>
-      )}
-    </div>
+        </Box>
+      </Collapse>
+    </Box>
   );
 }
 

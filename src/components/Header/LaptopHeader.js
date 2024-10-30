@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Box, Flex, Image, Text, VStack } from '@chakra-ui/react';
 
 function Navigation() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -9,54 +10,93 @@ function Navigation() {
   };
 
   return (
-    <div className="nav-container">
+    <Flex
+      as="nav"
+      bg="blue.500"
+      p={4}
+      color="white"
+      align="center"
+      justify="space-between"
+    >
       {/* Logo 在左邊 */}
-      <div className="nav-logo">
-        <Link to="/">
-          <img
-            src="/assets/images/car-logo.png"
-            alt="Logo"
-            className="desktop-logo"
-          />
-        </Link>
-      </div>
+      <Box flex="1">
+        <RouterLink to="/">
+          <Image src="/assets/images/car-logo.png" alt="Logo" boxSize="50px" />
+        </RouterLink>
+      </Box>
 
       {/* 選單項目在右邊 */}
-      <div className="nav-menu">
-        <Link to="/" className="menu-item">
-          回首頁
-        </Link>
-        <Link to="/api" className="menu-item">
-          抓API
-        </Link>
-        <div
-          className="menu-item"
+      <Flex flex="1" justify="flex-end" gap={4}>
+        <RouterLink to="/">
+          <Text fontWeight="bold" _hover={{ textDecoration: 'underline' }}>
+            回首頁
+          </Text>
+        </RouterLink>
+        <RouterLink to="/api">
+          <Text fontWeight="bold" _hover={{ textDecoration: 'underline' }}>
+            抓API
+          </Text>
+        </RouterLink>
+
+        <Box
           onMouseOver={() => toggleDropdown(true)}
           onMouseLeave={() => toggleDropdown(false)}
+          cursor="pointer"
+          position="relative"
         >
-          待辦事項 {isDropdownOpen ? '▲' : '▼'}
+          <Text fontWeight="bold">待辦事項 {isDropdownOpen ? '▲' : '▼'}</Text>
           {isDropdownOpen && (
-            <div className="dropdown">
-              <Link to="/TodoList" className="menu-item">
-                待辦事項1 ( local-Storage )
-              </Link>
-              <Link to="/TodoListRedux" className="menu-item">
-                待辦事項2 ( Redux )
-              </Link>
-              <Link to="/TodoApi" className="menu-item">
-                待辦事項3 ( HookAPI )
-              </Link>
-            </div>
+            <VStack
+              spacing={0}
+              position="absolute"
+              top="100%"
+              bg="blue.600"
+              boxShadow="lg"
+              p={2}
+              mt={1}
+              zIndex={10}
+            >
+              <RouterLink to="/TodoList">
+                <Text
+                  _hover={{ bg: 'blue.700' }}
+                  p={2}
+                  w="full"
+                  textAlign="center"
+                >
+                  待辦事項1 ( local-Storage )
+                </Text>
+              </RouterLink>
+              <RouterLink to="/TodoListRedux">
+                <Text
+                  _hover={{ bg: 'blue.700' }}
+                  p={2}
+                  w="full"
+                  textAlign="center"
+                >
+                  待辦事項2 ( Redux )
+                </Text>
+              </RouterLink>
+              <RouterLink to="/TodoApi">
+                <Text
+                  _hover={{ bg: 'blue.700' }}
+                  p={2}
+                  w="full"
+                  textAlign="center"
+                >
+                  待辦事項3 ( HookAPI )
+                </Text>
+              </RouterLink>
+            </VStack>
           )}
-        </div>
-        <Link to="/AboutUs" className="menu-item">
-          自我介紹
-        </Link>
-        <Link to="/TodoList" className="menu-item">
-          待辦事項
-        </Link>
-      </div>
-    </div>
+        </Box>
+
+        <RouterLink to="/AboutUs">
+          <Text fontWeight="bold" _hover={{ textDecoration: 'underline' }}>
+            自我介紹
+          </Text>
+        </RouterLink>
+      </Flex>
+    </Flex>
   );
 }
 

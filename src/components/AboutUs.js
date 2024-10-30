@@ -1,33 +1,78 @@
 import React from 'react';
-import '../App.css';
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  List,
+  ListItem,
+} from '@chakra-ui/react';
+
 function AboutUs() {
   return (
-    <div>
-      <div className="about-section">
-        <div className="about-me-left">
-          <h2>關於我</h2>
-          <img src="../assets/images/subaru-logo.png"></img>
-          <p>葉汶姍</p>
-          <h2>學歷</h2>
-          <p>北市康寧護理專校 | 資訊管理科 二專畢業</p>{' '}
-        </div>
-        <div className="about-me-right">
-          <h2>經歷</h2>
-          <p>智寶數位行銷有限公司 12年工作經歷</p>
-          <p>職位：網頁工程師</p>
-          <h2>前端技術</h2>
-          <p>
-            <ul>
-              <li>精通HTML、CSS、JavaScript、RWD（響應式網站）開發能力</li>
-              <li>WordPress開發和PHP、ASP網頁修改能力</li>
-              <li>React.js開發和Git控版能力</li>
-            </ul>
-          </p>
-          <h2>專案作品</h2>
-          <p>555</p>
-        </div>
-      </div>
-    </div>
+    <Box maxWidth="1200px" mx="auto" p="5">
+      <Flex
+        justifyContent="space-between"
+        flexDirection={{ base: 'column', md: 'row' }}
+        pb="5"
+      >
+        {/* 左側區域 */}
+        <Box
+          textAlign="left"
+          w={{ base: '100%', md: '50%' }}
+          mb={{ base: '5', md: '0' }}
+        >
+          <Heading as="h2" fontSize="2xl" color="blue.700">
+            關於我
+          </Heading>
+          <Image
+            src="../assets/images/subaru-logo.png"
+            alt="Subaru Logo"
+            boxSize="100px"
+            my="4"
+          />
+          <Text fontSize="lg" color="blue.600">
+            葉汶姍
+          </Text>
+          <Heading as="h2" fontSize="xl" color="blue.700" mt="4">
+            學歷
+          </Heading>
+          <Text fontSize="lg" color="blue.600">
+            北市康寧護理專校 | 資訊管理科 二專畢業
+          </Text>
+        </Box>
+
+        {/* 右側區域 */}
+        <Box textAlign="left" w={{ base: '100%', md: '50%' }}>
+          <Heading as="h2" fontSize="2xl" color="blue.700">
+            經歷
+          </Heading>
+          <Text fontSize="lg" color="blue.600">
+            智寶數位行銷有限公司 12年工作經歷
+          </Text>
+          <Text fontSize="lg" color="blue.600">
+            職位：網頁工程師
+          </Text>
+          <Heading as="h2" fontSize="xl" color="blue.700" mt="4">
+            前端技術
+          </Heading>
+          <List spacing={2} color="blue.600">
+            <ListItem>
+              精通HTML、CSS、JavaScript、RWD（響應式網站）開發能力
+            </ListItem>
+            <ListItem>WordPress開發和PHP、ASP網頁修改能力</ListItem>
+            <ListItem>React.js開發和Git控版能力</ListItem>
+          </List>
+          <Heading as="h2" fontSize="xl" color="blue.700" mt="4">
+            專案作品
+          </Heading>
+          <Text fontSize="lg" color="blue.600">
+            555
+          </Text>
+        </Box>
+      </Flex>
+    </Box>
   );
 }
 

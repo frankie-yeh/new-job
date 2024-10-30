@@ -1,52 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import TodoItem from './TodoItem'; // 引用單個待辦事項
-import TodoFilter from './TodoFilter'; // 篩選按鈕
-import TodoInput from './TodoInput'; // 輸入框
-import '../../styles/Todo.css'; // 引用CSS
+import {
+  Box,
+  Heading,
+  Input,
+  List,
+  Button,
+  VStack,
+  Stack,
+} from '@chakra-ui/react';
+import TodoItem from './TodoItem';
+import TodoFilter from './TodoFilter';
 
 const TodoList = () => {
-  const [tasks, setTasks] = useState([]); // 保存待辦事项
-  const [input, setInput] = useState(''); // 新增待辦事项
-  const [filter, setFilter] = useState('全部'); // 目前篩選狀態
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState('');
+  const [filter, setFilter] = useState('全部');
 
-  // 用 localStorage 保存待辦事項
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
-      console.log('Stored tasks found:', storedTasks); // 增加日誌
-      setTasks(storedTasks); // 如果 localStorage 中有待辦事項，設置狀態
+      setTasks(storedTasks);
     }
-  }, []); // 第一次渲染時讀取
+  }, []);
 
-  // 當 tasks 改變時，保存到 localStorage
   useEffect(() => {
-    console.log('Saving tasks to localStorage:', tasks); // 增加日誌
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]); // 當 tasks 改變時，保存到 localStorage
+  }, [tasks]);
 
-  // 新增待辦事項，新增的每一個任務都會有一個唯一的 id
   const addTask = (text) => {
     if (text) {
-      const newTask = { id: Date.now(), text, completed: false }; // 用 Date.now() 產生唯一的 id
-      setTasks([...tasks, newTask]); // 將待辦事項加入列表裡
-      setInput(''); // 清空輸入框
+      const newTask = { id: Date.now(), text, completed: false };
+      setTasks([...tasks, newTask]);
+      setInput('');
     }
   };
 
-  // 切换待辦事項完成狀態
   const toggleComplete = (id) => {
     const newTasks = tasks.map((task) =>
       task.id === id ? { ...task, completed: !task.completed } : task
     );
-    setTasks(newTasks); // 更新完狀態
+    setTasks(newTasks);
   };
 
-  // 删除待辦事項
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id)); // 過濾掉指定 id 的待辦事項
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  // 篩選待辦事項
   const filteredTasks = tasks.filter((task) =>
     filter === '全部'
       ? true
@@ -55,14 +54,33 @@ const TodoList = () => {
         : task.completed
   );
 
-  console.log('Filtered tasks:', filteredTasks); // 增加日誌
-
   return (
-    <div className="todo-container">
-      <h1>你忘記的事</h1>
-      <TodoInput input={input} setInput={setInput} addTask={addTask} />{' '}
-      {/* 輸入框 */}
-      <ul>
+    <Box
+      width="90%"
+      maxWidth="650px"
+      p="6"
+      bg="gray.100"
+      borderRadius="md"
+      mx="auto"
+      boxShadow="md"
+    >
+      <Heading as="h1" size="lg" color="teal.600" mb="4" textAlign="center">
+        你忘記的事
+      </Heading>
+      <VStack spacing={4}>
+        <Input
+          placeholder="新增待辦事項"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && addTask(input)}
+          borderColor="teal.300"
+          bg="white"
+        />
+        <Button colorScheme="teal" onClick={() => addTask(input)} w="full">
+          新增
+        </Button>
+      </VStack>
+      <List spacing={3} mt="4">
         {filteredTasks.map((task) => (
           <TodoItem
             key={task.id}
@@ -71,9 +89,11 @@ const TodoList = () => {
             deleteTask={() => deleteTask(task.id)}
           />
         ))}
-      </ul>
-      <TodoFilter filter={filter} setFilter={setFilter} /> {/* 篩選按鈕 */}
-    </div>
+      </List>
+      <Stack direction="row" justify="center" mt="4" spacing={2}>
+        <TodoFilter filter={filter} setFilter={setFilter} />
+      </Stack>
+    </Box>
   );
 };
 

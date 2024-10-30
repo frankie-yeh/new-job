@@ -1,15 +1,15 @@
-import TodoItem from '../TodoItem'; // 引用單個待辦事項
-import TodoFilter from '../TodoFilter'; // 篩選按鈕
-import TodoInput from '../TodoInput'; // 輸入框
-import '../../../styles/Todo.css'; // 引用CSS
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import TodoItem from '../TodoItem';
+import TodoFilter from '../TodoFilter';
+import TodoInput from '../TodoInput';
 import {
   addTask,
   toggleComplete,
   deleteTask,
   setFilter,
 } from '../List-Redux/TodoSlice';
+import { Box, Heading, List } from '@chakra-ui/react';
 
 const TodoListRedux = () => {
   const [input, setInput] = useState('');
@@ -21,7 +21,7 @@ const TodoListRedux = () => {
   const handleAddTask = () => {
     if (input) {
       dispatch(addTask(input));
-      setInput(''); // 清空輸入框
+      setInput('');
     }
   };
 
@@ -35,15 +35,22 @@ const TodoListRedux = () => {
   );
 
   return (
-    <div className="todo-container">
-      <h1>Redux 待辦事項</h1>
-      <TodoInput
-        input={input}
-        setInput={setInput}
-        addTask={handleAddTask}
-      />{' '}
-      {/* 輸入框 */}
-      <ul>
+    <Box
+      width="90%"
+      maxWidth="650px"
+      p="6"
+      bg="#e6dbc9"
+      borderRadius="10px"
+      boxShadow="md"
+      mx="auto"
+      textAlign="center"
+      mt="8"
+    >
+      <Heading as="h1" size="lg" color="#dbc191" mb="4">
+        Redux 待辦事項
+      </Heading>
+      <TodoInput input={input} setInput={setInput} addTask={handleAddTask} />
+      <List spacing="4" mt="4">
         {filteredTasks.map((task) => (
           <TodoItem
             key={task.id}
@@ -52,13 +59,12 @@ const TodoListRedux = () => {
             deleteTask={() => dispatch(deleteTask(task.id))}
           />
         ))}
-      </ul>
+      </List>
       <TodoFilter
         filter={filter}
         setFilter={(newFilter) => dispatch(setFilter(newFilter))}
-      />{' '}
-      {/* 篩選按鈕 */}
-    </div>
+      />
+    </Box>
   );
 };
 

@@ -1,28 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types'; // 引用 PropTypes
+import PropTypes from 'prop-types';
+import { Button, ButtonGroup } from '@chakra-ui/react';
 
 const TodoFilter = ({ filter, setFilter }) => {
   return (
-    <div className="filter-buttons">
-      <button
+    <ButtonGroup spacing={4} mt={4}>
+      <Button
         onClick={() => setFilter('全部')}
-        className={filter === '全部' ? 'active' : ''}
+        colorScheme={filter === '全部' ? 'blue' : 'gray'}
+        variant={filter === '全部' ? 'solid' : 'outline'}
       >
         全部
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => setFilter('尚未完成')}
-        className={filter === '尚未完成' ? 'active' : ''}
+        colorScheme={filter === '尚未完成' ? 'blue' : 'gray'}
+        variant={filter === '尚未完成' ? 'solid' : 'outline'}
       >
         尚未完成
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => setFilter('完成')}
-        className={filter === '完成' ? 'active' : ''}
+        colorScheme={filter === '完成' ? 'blue' : 'gray'}
+        variant={filter === '完成' ? 'solid' : 'outline'}
       >
         已完成
-      </button>
-    </div>
+      </Button>
+    </ButtonGroup>
   );
 };
 

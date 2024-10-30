@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // 確保 axios 被引用
+import axios from 'axios';
+import {
+  Heading,
+  Text,
+  UnorderedList,
+  ListItem,
+  Container,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 function ApiComponent() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
-  // 用 useEffect 在組件掛載時執行 API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,23 +30,43 @@ function ApiComponent() {
   }, []);
 
   return (
-    <div>
-      <div className="api-section">
-        <h2>API Call Example</h2>
-        {error ? (
-          <p className="error">{error}</p>
-        ) : (
-          <ul className="api-list">
-            {data.map((item) => (
-              <li key={item.id} className="api-item">
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </div>
+    <Container
+      maxW="800px"
+      my="20px"
+      p="20px"
+      boxShadow="md"
+      borderRadius="lg"
+      bg={useColorModeValue('gray.50', 'gray.700')}
+    >
+      <Heading as="h2" size="lg" mb="20px" textAlign="center">
+        API Call Example
+      </Heading>
+      {error ? (
+        <Text color="red.500" textAlign="center">
+          {error}
+        </Text>
+      ) : (
+        <UnorderedList spacing={4}>
+          {data.map((item) => (
+            <ListItem
+              key={item.id}
+              p="15px"
+              border="1px"
+              borderColor="gray.300"
+              borderRadius="md"
+              boxShadow="sm"
+            >
+              <Heading as="h3" size="md" color="gray.700">
+                {item.title}
+              </Heading>
+              <Text color="gray.600" mt="2">
+                {item.body}
+              </Text>
+            </ListItem>
+          ))}
+        </UnorderedList>
+      )}
+    </Container>
   );
 }
 
