@@ -7,12 +7,9 @@ function FourDivs() {
       {carData.map((car, index) => (
         <Box
           key={index}
-          width={['100%', '48%', '25%']}
-          p="5"
+          width={['100%', '48%', '23.2%']}
           textAlign="center"
-          bg="gray.100"
-          borderRadius="md"
-          boxShadow="md"
+          px={4}
           my="5"
         >
           <Image

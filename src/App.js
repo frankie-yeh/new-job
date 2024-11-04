@@ -22,7 +22,7 @@ function App() {
               path="/"
               element={
                 <>
-                  <Box width="100vw" className="carousel-div">
+                  <Box width="100%" className="carousel-div">
                     <Carousel />
                   </Box>
                   <FourDivs />

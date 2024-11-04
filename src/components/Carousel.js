@@ -19,7 +19,7 @@ function Carousel() {
   }, [slides.length]);
 
   return (
-    <Box maxW="99.1%" p={0} m={0}>
+    <Box maxW="100%" p={0} m={0}>
       <Image
         src={slides[currentSlide]}
         alt={`Slide ${currentSlide + 1}`}
