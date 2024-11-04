@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Carousel from './components/Carousel';
 import FourDivs from './components/FourDivs';
@@ -14,16 +15,16 @@ function App() {
   return (
     <Router>
       <Wrapper>
-        <div className="outer-div">
+        <Box width="100%" maxWidth="100%">
           <Routes>
             {/* 預設頁面顯示輪播圖和四個區塊 */}
             <Route
               path="/"
               element={
                 <>
-                  <div className="carousel-div">
+                  <Box width="100vw" className="carousel-div">
                     <Carousel />
-                  </div>
+                  </Box>
                   <FourDivs />
                   <BgVideo />
                 </>
@@ -35,7 +36,7 @@ function App() {
             <Route path="/TodoListRedux" element={<TodoListRedux />} />
             <Route path="/TodoApi" element={<TodoApi />} />
           </Routes>
-        </div>
+        </Box>
       </Wrapper>
     </Router>
   );

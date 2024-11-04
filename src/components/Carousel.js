@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Box, Image } from '@chakra-ui/react';
 
 function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,9 +19,15 @@ function Carousel() {
   }, [slides.length]);
 
   return (
-    <div className="carousel">
-      <img src={slides[currentSlide]} alt={`Slide ${currentSlide + 1}`} />
-    </div>
+    <Box maxW="99.1%" p={0} m={0}>
+      <Image
+        src={slides[currentSlide]}
+        alt={`Slide ${currentSlide + 1}`}
+        width="100%"
+        height="100%"
+        objectFit="cover"
+      />
+    </Box>
   );
 }
 

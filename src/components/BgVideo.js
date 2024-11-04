@@ -9,6 +9,7 @@ function Bgvideo() {
       height="800px"
       overflow="hidden"
       zIndex="-1"
+      my={5}
     >
       <Box
         as="video"

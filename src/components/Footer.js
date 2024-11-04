@@ -11,14 +11,7 @@ import {
 
 function Footer() {
   return (
-    <Box
-      as="footer"
-      bg="white"
-      borderTop="1px solid"
-      borderColor="gray.200"
-      py={5}
-      px={4}
-    >
+    <Box as="footer" bg="blue" borderTop="1px solid" borderColor="gray.200">
       <Flex
         direction={{ base: 'column', md: 'row' }}
         align="center"

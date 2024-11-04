@@ -8,7 +8,7 @@ const Wrapper = ({ children }) => {
   return (
     <Box>
       <Header />
-      <Container maxW="container.lg" p={4}>
+      <Container maxWidth="100%" p={0} m={0}>
         {children} {/* 主內容區域 */}
       </Container>
       <Footer /> {/* 頁尾 */}

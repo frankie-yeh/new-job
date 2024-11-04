@@ -21,7 +21,7 @@ function Navigation() {
       {/* Logo 在左邊 */}
       <Box flex="1">
         <RouterLink to="/">
-          <Image src="/assets/images/car-logo.png" alt="Logo" boxSize="50px" />
+          <Image src="/assets/images/car-logo.png" alt="Logo" boxh="50px" />
         </RouterLink>
       </Box>
 

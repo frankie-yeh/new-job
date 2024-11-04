@@ -3,7 +3,7 @@ import { Box, Image, Text, Heading, Flex } from '@chakra-ui/react';
 
 function FourDivs() {
   return (
-    <Flex justify="space-around" wrap="wrap" mb="20px">
+    <Flex justify="space-around" wrap="wrap" width="100%" maxW="100%">
       {carData.map((car, index) => (
         <Box
           key={index}
@@ -13,7 +13,7 @@ function FourDivs() {
           bg="gray.100"
           borderRadius="md"
           boxShadow="md"
-          mb="5"
+          my="5"
         >
           <Image
             src={car.image}
@@ -35,7 +35,7 @@ function FourDivs() {
 
 const carData = [
   {
-    image: '../assets/images/audi-logo.png',
+    image: '/assets/images/auid-logo.png',
     name: 'Audi RS5',
     description:
       '搭載2.9升V6缸內直噴雙渦輪增壓引擎，可輸出450hp的最大馬力及61.2kgm的最大扭力，進階跑車化懸吊系統及動態駕馭控制系統(DRC)及quattro智慧型恆時四輪傳動系統。',
