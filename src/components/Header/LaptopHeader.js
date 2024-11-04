@@ -21,12 +21,12 @@ function Navigation() {
       {/* Logo 在左邊 */}
       <Box flex="1">
         <RouterLink to="/">
-          <Image src="/assets/images/car-logo.png" alt="Logo" boxh="50px" />
+          <Image src="/assets/images/car-logo.png" alt="Logo" />
         </RouterLink>
       </Box>
 
       {/* 選單項目在右邊 */}
-      <Flex flex="1" justify="flex-end" gap={4}>
+      <Flex flex="1" justify="flex-end" gap={10}>
         <RouterLink to="/">
           <Text fontWeight="bold" _hover={{ textDecoration: 'underline' }}>
             回首頁
@@ -47,13 +47,14 @@ function Navigation() {
           <Text fontWeight="bold">待辦事項 {isDropdownOpen ? '▲' : '▼'}</Text>
           {isDropdownOpen && (
             <VStack
+              width="250px"
               spacing={0}
               position="absolute"
               top="100%"
               bg="blue.600"
               boxShadow="lg"
               p={2}
-              mt={1}
+              mt={0}
               zIndex={10}
             >
               <RouterLink to="/TodoList">
