@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <Wrapper>
-        <Box width="100%" maxWidth="100%">
+        <Box width="100%" maxWidth="100%" pb="2em">
           <Routes>
             {/* 預設頁面顯示輪播圖和四個區塊 */}
             <Route

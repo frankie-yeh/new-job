@@ -62,6 +62,7 @@ const TodoList = () => {
       bg="gray.100"
       borderRadius="md"
       mx="auto"
+      my="2em"
       boxShadow="md"
     >
       <Heading as="h1" size="lg" color="teal.600" mb="4" textAlign="center">

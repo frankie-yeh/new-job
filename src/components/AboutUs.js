@@ -11,7 +11,7 @@ import {
 
 function AboutUs() {
   return (
-    <Box maxWidth="100%" mx="auto" p="5" px="96">
+    <Box maxWidth="100%" mx="auto" p="5" px="96" my="2em">
       <Flex
         justifyContent="space-between"
         flexDirection={{ base: 'column', md: 'row' }}
