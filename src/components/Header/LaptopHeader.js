@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Flex, Image, Text, VStack } from '@chakra-ui/react';
+import { Box, Flex, Image, Text } from '@chakra-ui/react';
 
 function Navigation() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -26,7 +26,7 @@ function Navigation() {
       </Box>
 
       {/* 選單項目在右邊 */}
-      <Flex flex="1" justify="flex-end" gap={10}>
+      <Flex flex="1" justify="flex-end" gap={24}>
         <RouterLink to="/">
           <Text fontWeight="bold" _hover={{ textDecoration: 'underline' }}>
             回首頁
@@ -46,11 +46,12 @@ function Navigation() {
         >
           <Text fontWeight="bold">待辦事項 {isDropdownOpen ? '▲' : '▼'}</Text>
           {isDropdownOpen && (
-            <VStack
-              width="250px"
-              spacing={0}
+            <Flex
+              direction="column"
+              width="215px"
               position="absolute"
               top="100%"
+              ml="-20px"
               bg="blue.600"
               boxShadow="lg"
               p={2}
@@ -58,36 +59,21 @@ function Navigation() {
               zIndex={10}
             >
               <RouterLink to="/TodoList">
-                <Text
-                  _hover={{ bg: 'blue.700' }}
-                  p={2}
-                  w="full"
-                  textAlign="center"
-                >
+                <Text _hover={{ bg: 'blue.700' }} p={1} w="full">
                   待辦事項1 ( local-Storage )
                 </Text>
               </RouterLink>
               <RouterLink to="/TodoListRedux">
-                <Text
-                  _hover={{ bg: 'blue.700' }}
-                  p={2}
-                  w="full"
-                  textAlign="center"
-                >
+                <Text _hover={{ bg: 'blue.700' }} p={1} w="full">
                   待辦事項2 ( Redux )
                 </Text>
               </RouterLink>
               <RouterLink to="/TodoApi">
-                <Text
-                  _hover={{ bg: 'blue.700' }}
-                  p={2}
-                  w="full"
-                  textAlign="center"
-                >
+                <Text _hover={{ bg: 'blue.700' }} p={1} w="full">
                   待辦事項3 ( HookAPI )
                 </Text>
               </RouterLink>
-            </VStack>
+            </Flex>
           )}
         </Box>
 
