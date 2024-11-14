@@ -6,13 +6,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import Store from './components/Todo/List-Redux/Store';
+import { TodoProvider } from './components/Todo/contexts/TodoContext.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider>
-    <Provider store={Store}>
-      <App />
-    </Provider>
+    <TodoProvider>
+      <Provider store={Store}>
+        <App />
+      </Provider>
+    </TodoProvider>
   </ChakraProvider>
 );
 
